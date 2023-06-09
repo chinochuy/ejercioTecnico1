@@ -6,29 +6,30 @@
              ios:Page.UseSafeArea="true"
              x:Class="ejercioTecnico1.MainPage">
 
-    <StackLayout>
-        <Label Text="Total de items:"/>
-        <Label Text="{Binding TotalItems}"
-               />
+    <StackLayout BackgroundColor="White">
+        <Grid Margin="10" RowDefinitions="Auto,Auto" ColumnDefinitions="*, *">
+            <Label Text="Participante:" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <Label Grid.Row="1" Text="Jesus Alfredo Padilla" FontSize="Subtitle" TextColor="DarkBlue" HorizontalTextAlignment="Center"/>
 
-        <ListView ItemsSource="{Binding Entries}"
-                  >
+            <Label Grid.Column="1" Text="Total de items:" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <Label Grid.Column="1" Grid.Row="1" Text="{Binding TotalItems}" FontSize="Subtitle" TextColor="IndianRed" HorizontalTextAlignment="Center"/>
+        </Grid>
+
+        <BoxView HeightRequest="1" Color="LightGray"/>
+
+        <ListView ItemsSource="{Binding Entries}" Margin="10,0,10,0" SelectionMode="None" VerticalOptions="FillAndExpand">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout>
-                            <Label Text="{Binding Description}"/>
-
-                        </StackLayout>
-
+                        <Frame BackgroundColor="Transparent" Padding="10" BorderColor="LightGray" VerticalOptions="FillAndExpand">
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding Description}" VerticalTextAlignment="Center"/>
+                            </StackLayout>
+                        </Frame>
                     </ViewCell>
-
                 </DataTemplate>
-
             </ListView.ItemTemplate>
-
         </ListView>
-
     </StackLayout>
 </ContentPage>
 
